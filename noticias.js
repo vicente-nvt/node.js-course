@@ -6,17 +6,13 @@ app.set('view engine','ejs');
 app.listen(3000, () => {console.log("Servidor rodando com Express")});
 
 app.get('/', (req, res) => { 
-    res.send('<html><body>Portal de Notícias</body></html>'); 
-});
-app.get('/tecnologia', (req, res) => { 
-    res.send('<html><body>Notícias de Tecnologia</body></html>'); 
+    res.render("home/index"); 
 });
 
-app.get('/beleza', (req, res) => { 
-    res.send('<html><body>Notícias de Beleza</body></html>'); 
+app.get('/adicionarNoticia', (req, res) => { 
+    res.render("admin/form_add_noticia"); 
 });
 
-app.get('/moda', (req, res) => { 
-    res.send('<html><body>Notícias de Moda</body></html>'); 
+app.get('/noticias', (req, res) => { 
+    res.render("noticias/noticias"); 
 });
-
