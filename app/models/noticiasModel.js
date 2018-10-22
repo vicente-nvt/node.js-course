@@ -9,5 +9,10 @@ module.exports = () => {
         connection.query(sql, callback);
     }
 
+    this.addNoticia = (noticia, connection, callback) => {
+        var sql = "insert into noticias set ?";
+        connection.query(sql, noticia, callback);
+    }
+
     return this;
 }
