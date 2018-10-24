@@ -6,11 +6,9 @@ module.exports = (app) => {
     app.post("/admin/adicionarNoticia", (req, res) => {
         
         var dbConnection = app.config.dbConnection();
-        var noticiasModel = app.app.models.noticiasModel;
+        var noticiasDao = new app.app.models.NoticiasDAO(dbConnection);
         var noticia = req.body;
 
-        noticiasModel.addNoticia(noticia, 
-            dbConnection, 
-            () => { res.redirect("/noticias");});
+        noticiasDao.addNoticia(noticia, () => { res.redirect("/noticias");});
     });
 }

@@ -1,9 +1,9 @@
 module.exports = (app) => {
     app.get('/noticia', (req, res) => { 
-        var conexao = app.config.dbConnection();
-        var noticiasModel = app.app.models.noticiasModel;
+        var connection = app.config.dbConnection();
+        var noticiasDao = new app.app.models.NoticiasDAO(connection);
 
-        noticiasModel.getNoticia(conexao,  (error, result) => {
+        noticiasDao.getNoticia((error, result) => {
             if (error) res.send(error);
             res.render("noticias/noticia", { noticia : result });
         });
