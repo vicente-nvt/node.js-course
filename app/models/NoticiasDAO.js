@@ -11,6 +11,7 @@ class NoticiasDAO {
         this._connection.query(sql, callback);
     }
     addNoticia(noticia, callback) {
+        console.log(noticia);
         var sql = "insert into noticias set ?";
         this._connection.query(sql, noticia, callback);
     }
